@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+
+  dev:
+
+    build:
+      context: .
+      target: dev
+
+    command: tail -F keeprunning
+    working_dir: /var/app
+    volumes:
+      - .:/var/app:cached
+      - ~/.ghToken:/root/.ghToken
